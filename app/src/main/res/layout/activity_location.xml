@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="locationViewModel"
+            type="com.devjsky.android.whereuat.viewmodel.LocationViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.ui.tracking.activity.LocationActivity">
+
+        <fragment
+            android:id="@+id/layout_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.naver.maps.map.MapFragment" />
+
+        <com.naver.maps.map.widget.LocationButtonView
+            android:id="@+id/view_mapLocationBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            />
+        <com.naver.maps.map.widget.ZoomControlView
+            android:id="@+id/view_mapZoomCtrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_mapLocationBtn"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="3dp"
+            />
+
+        <LinearLayout
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="54dp"
+            android:padding="14dp"
+            android:gravity="center|left"
+            android:orientation="horizontal"
+            android:id="@+id/layout_myAddress"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="46dp">
+
+
+            <TextView
+                android:id="@+id/tv_friendAddressTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상대방 위치 :"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                />
+
+            <TextView
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                android:id="@+id/tv_friendAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                />
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+</layout>

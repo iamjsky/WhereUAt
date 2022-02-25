@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="bottomSheetLoginViewModel"
+            type="com.devjsky.android.whereuat.viewmodel.BottomSheetLoginViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:background="@drawable/bg_rounded_top_01"
+        android:id="@+id/layout_fragment_bottom_sheet_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/color_main"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="로그인을 해주세요"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:stateListAnimator="@null"
+                android:textSize="16sp"
+                android:textColor="@color/color_main"
+                android:background="@drawable/bg_rounded_kakao_01"
+                android:text="카카오 로그인"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
