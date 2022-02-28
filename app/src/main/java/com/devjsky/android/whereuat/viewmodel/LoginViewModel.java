@@ -72,6 +72,7 @@ public class LoginViewModel extends BaseViewModel {
                 MyPreferenceManager.setString(mContext, "mem_token", data.getMemberInfo().getMemToken()+"");
 
 
+
                 isLoginFin.setValue(true);
             }else{
                 isLoginFin.setValue(false);

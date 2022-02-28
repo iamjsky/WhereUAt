@@ -25,4 +25,5 @@ public class MemberInfo {
     private String mem_token="";
     private Integer memIdx=-1;
     private boolean isMeeting = false;
+    private String memProfileImgUrl="";
 }

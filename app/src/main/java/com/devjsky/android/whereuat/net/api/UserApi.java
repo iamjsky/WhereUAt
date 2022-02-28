@@ -205,12 +205,14 @@ public class UserApi extends BaseApi {
                     switch (code) {
                         case OK:
                             MemberInfo.getInstance().setMem_token(resData.getMemberInfo().getMemToken());
+                            MemberInfo.getInstance().setMemProfileImgUrl(resData.getMemberInfo().getMemProfileImgUrl()+"");
 
                             callback.onSuccess(resData);
                             break;
 
                         default:
                             MemberInfo.getInstance().setMem_token("");
+                            MemberInfo.getInstance().setMemProfileImgUrl(resData.getMemberInfo().getMemProfileImgUrl()+"");
                             callback.onError(resData);
                             break;
                     }

@@ -1,6 +1,6 @@
 package com.devjsky.android.whereuat.net.pojo;
 
-import com.devjsky.android.whereuat.model.MeetingData;
+import com.devjsky.android.whereuat.model.MeetingGroupData;
 import com.devjsky.android.whereuat.model.MeetingGroupMemberData;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -23,7 +23,7 @@ public class _GetMeetingInfo {
     public HttpBaseHeader header;
     @SerializedName("meeting_group_info")
     @Expose
-    public MeetingData meetingGroupInfo;
+    public MeetingGroupData meetingGroupInfo;
     @SerializedName("meeting_group_member_info")
     @Expose
     public List<MeetingGroupMemberData> meetingGroupMemberDataList = new ArrayList<>();

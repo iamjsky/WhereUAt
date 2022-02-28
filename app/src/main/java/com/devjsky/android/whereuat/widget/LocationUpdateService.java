@@ -25,6 +25,10 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.devjsky.android.whereuat.R;
 import com.devjsky.android.whereuat.common.Constants;
 import com.devjsky.android.whereuat.net.api.MeetingApi;
+import com.devjsky.android.whereuat.net.api.callback._GetMeetingInfoCallback;
+import com.devjsky.android.whereuat.net.api.callback._UpdateLocationCallback;
+import com.devjsky.android.whereuat.net.pojo._GetMeetingInfo;
+import com.devjsky.android.whereuat.net.pojo._UpdateLocation;
 import com.devjsky.android.whereuat.view.ui.main.activity.MainActivity;
 
 import com.devjsky.android.whereuat.widget.utils.GpsUtils;
@@ -117,6 +121,9 @@ public class LocationUpdateService extends Service implements Constants {
     double latitude=0;
     double longitude=0;
 
+    MeetingApi meetingApi;
+
+
     public LocationUpdateService() {
 
     }
@@ -135,6 +142,8 @@ public class LocationUpdateService extends Service implements Constants {
                 onNewLocation(locationResult.getLastLocation());
             }
         };
+
+        meetingApi = new MeetingApi();
         createLocationRequest();
         getLastLocation();
 
@@ -367,7 +376,21 @@ public class LocationUpdateService extends Service implements Constants {
         }
 
         MainActivity.instance.mViewModel.setMyLocation(location, address);
-        MeetingApi.
+        meetingApi.updateLocation(latitude, longitude, address, new _UpdateLocationCallback() {
+            @Override
+            public void onSuccess(_UpdateLocation data) {
+                MainActivity.instance.mViewModel.meetingGroupMemberData.setValue(data.getMeetingGroupMemberInfoList());
+                if(data.getMeetingGroupMemberInfoList().size() > 0){
+                    LOG_E("updateLocation : " + data.getMeetingGroupMemberInfoList().get(0).getLastAddress());
+                }
+
+            }
+
+            @Override
+            public void onError(_UpdateLocation data) {
+
+            }
+        });
 
 
 

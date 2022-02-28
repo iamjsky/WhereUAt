@@ -1,6 +1,5 @@
 package com.devjsky.android.whereuat.view.ui.main.dialog;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -8,12 +7,11 @@ import android.widget.Button;
 
 import com.devjsky.android.whereuat.R;
 
-import com.devjsky.android.whereuat.model.MeetingData;
+import com.devjsky.android.whereuat.model.MeetingGroupData;
 import com.devjsky.android.whereuat.net.api.MeetingApi;
 import com.devjsky.android.whereuat.net.api.callback._CreateMeetingCallback;
 import com.devjsky.android.whereuat.net.pojo._CreateMeeting;
 import com.devjsky.android.whereuat.view.base.BaseDialog;
-import com.devjsky.android.whereuat.view.ui.main.activity.MainActivity;
 
 /**
  * ClassName            CreateMeetingDialog
@@ -23,7 +21,7 @@ import com.devjsky.android.whereuat.view.ui.main.activity.MainActivity;
  */
 public class CreateMeetingDialog extends BaseDialog {
 
-    MeetingData meetingData = null;
+    MeetingGroupData meetingGroupData = null;
     CreateMeetingDialogCallback callback;
 
     public interface CreateMeetingDialogCallback {
@@ -58,17 +56,17 @@ public class CreateMeetingDialog extends BaseDialog {
 
     }
 
-    public void setData(MeetingData data){
-        if(meetingData != null){
-            meetingData = null;
+    public void setData(MeetingGroupData data){
+        if(meetingGroupData != null){
+            meetingGroupData = null;
         }
 
-        meetingData = data;
+        meetingGroupData = data;
     }
 
     public void dialogCreateMeeting(){
-        if(meetingData != null){
-            MeetingApi.createMeeting(meetingData, new _CreateMeetingCallback() {
+        if(meetingGroupData != null){
+            MeetingApi.createMeeting(meetingGroupData, new _CreateMeetingCallback() {
                 @Override
                 public void onSuccess(_CreateMeeting data) {
                     if(data.getHeader().getCode() == OK){

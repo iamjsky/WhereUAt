@@ -12,7 +12,7 @@ import lombok.Data;
  * Description
  */
 @Data
-public class MeetingData {
+public class MeetingGroupData {
     @SerializedName("place_address")
     @Expose
     public String placeAddress;

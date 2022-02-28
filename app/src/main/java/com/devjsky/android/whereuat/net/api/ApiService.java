@@ -6,10 +6,12 @@ import com.devjsky.android.whereuat.net.pojo._GetMeetingInfo;
 import com.devjsky.android.whereuat.net.pojo._GetMemberInfo;
 import com.devjsky.android.whereuat.net.pojo._KakaoLogin;
 import com.devjsky.android.whereuat.net.pojo._KakaoSignUp;
+import com.devjsky.android.whereuat.net.pojo._UpdateLocation;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
@@ -63,6 +65,7 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("createMeeting.php")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
     Call<_CreateMeeting> createMeeting(
 
             @Field("mem_token") String mem_token,
@@ -77,6 +80,19 @@ public interface ApiService {
     Call<_GetMeetingInfo> getMeetingInfo(
 
             @Field("mem_token") String mem_token
+
+    );
+
+
+    @FormUrlEncoded
+    @POST("updateLocation.php")
+    @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
+    Call<_UpdateLocation> updateLocation(
+
+            @Field("mem_token") String mem_token,
+            @Field("last_latitude") Double last_latitude,
+            @Field("last_longitude") Double last_longitude,
+            @Field("last_address") String last_address
 
     );
 }

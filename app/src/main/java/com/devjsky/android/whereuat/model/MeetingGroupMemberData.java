@@ -40,4 +40,10 @@ public class MeetingGroupMemberData {
     @SerializedName("last_address")
     @Expose
     public String lastAddress;
+    @SerializedName("mem_nickname")
+    @Expose
+    public String memNickname;
+    @SerializedName("mem_profile_img_url")
+    @Expose
+    public String memProfileImgUrl;
 }

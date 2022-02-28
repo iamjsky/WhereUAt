@@ -5,7 +5,7 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.devjsky.android.whereuat.model.MeetingData;
+import com.devjsky.android.whereuat.model.MeetingGroupData;
 import com.devjsky.android.whereuat.model.MeetingGroupMemberData;
 import com.devjsky.android.whereuat.model.User;
 import com.devjsky.android.whereuat.net.api.MeetingApi;
@@ -15,7 +15,6 @@ import com.devjsky.android.whereuat.net.api.callback._GetMeetingInfoCallback;
 import com.devjsky.android.whereuat.net.pojo.GetApiTest;
 import com.devjsky.android.whereuat.net.pojo._GetMeetingInfo;
 import com.devjsky.android.whereuat.view.base.BaseViewModel;
-import com.devjsky.android.whereuat.widget.SingleLiveEvent;
 
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class MainViewModel extends BaseViewModel {
 
     public MutableLiveData<User> userData = new MutableLiveData<>();
 
-    public MutableLiveData<MeetingData> meetingData = new MutableLiveData<>();
+    public MutableLiveData<MeetingGroupData> meetingData = new MutableLiveData<>();
     public MutableLiveData<List<MeetingGroupMemberData>> meetingGroupMemberData = new MutableLiveData<>();
 
     public MutableLiveData<Location> mLocation = new MutableLiveData<>();
@@ -40,6 +39,8 @@ public class MainViewModel extends BaseViewModel {
     public void setMyLocation(Location location, String address){
         mLocation.setValue(location);
         mAddress.setValue(address);
+
+
     }
 
     public void addValue() {
